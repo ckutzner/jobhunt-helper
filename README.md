@@ -3,7 +3,7 @@ A set of bash and Python3 tools to help generate neat job applications in LaTeX,
 
 Who likes hunting for jobs? I don't know - but I do know that I, personally, dislike it fiercely. So if I have to do it, I want to do it efficiently, e.g. by automating brainless work and copy-pasting, thus freeing mental capacity for the bits that actually benefit from the application of (a bit of or lots of) brainpower. 
 
-Here's what it aims to do:
+Here's what this toolset aims to do:
 
 * generate a LaTeX coverletter, tailored to your needs (choose between different body text templates, e.g. conservative/edgy text, modify availability based on location of the job - e.g. if you could start a job in your city earlier than one that requires you to move, modify text for temp agencies or other intermediaries)
 * generate a pdf from that letter and append your CV, testimonies, and work samples 
