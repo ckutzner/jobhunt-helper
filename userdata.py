@@ -6,7 +6,13 @@ def new_user(order, data):
     arguments: list that determines order of elements; dictionary that stores user data 
     """
     for k in order:
-        data[k] = input('Bitte gib Deine(n) {} ein und drücke ENTER: '.format(k))
+        data[k] = input('Bitte gib Dein(en) {} ein und drücke ENTER: '.format(k))
+    print('Hier sind Deine Daten: ')
+    for k in order:
+        print(k + ': ' + data[k])
+    check_again = input('Ist alles korrekt? j für ja/n für nein: ')
+    if check_again == 'n':
+        check_user(order, data)
     return data
 
 def check_user(order, data):
@@ -21,7 +27,7 @@ def check_user(order, data):
         else:
             print('OK')
     print('Hier sind die korrigierten Daten: ')
-    for k in data:
+    for k in order:
         print(k + ': ' + data[k])
     check_again = input('Ist jetzt alles korrekt? j für ja/n für nein: ')
     if check_again == 'n':
