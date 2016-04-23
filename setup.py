@@ -21,6 +21,7 @@ def start():
     """ checks if userdata file already exists; if not, calls new_user; if userdata file exists, but 'Name' is empty, calls new_user as well """
     if user_data['Name'] == '': 
         new_user(order, user_data)
+        check_user(order, user_data)
     else:
         print('Hello {}!'.format(user_data['Name']))
         edituser = input('Möchtest Du Deine Daten prüfen oder korrigieren? Bitte gib j für ja oder n für nein ein: ')
