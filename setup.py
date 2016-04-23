@@ -11,15 +11,18 @@ from userdata import new_user, check_user
 
 # this list serves to ask the user for the data in an order they expect
 order = ['Name','Straße Hausnummer','PLZ Ort','mobil','E-mail','www']
-# dictionary with the user data: check here if there is already a dictionary shelve; if there is, open that; if there isn't, initialize this empty directory.
-# if :
-#     # open shelved dict
-# else: 
-#     user_data = {'Name':'','Straße Hausnummer':'','PLZ Ort':'','Telefon':'','mobil':'','E-mail':'','www':''}
+# generate shelve object that will be the userdata dictionary
+user_data = shelve.open('userfile')
+
+def dict_init():
+    """ if 'Name' exists in dict, loops over order and initializes all the values """
+    if not 'Name' in user_data:
+	for i in order:
+            user_data[i] = ''
 
 def start():
-    """ checks if userdata file already exists; if not, calls new_user; if userdata file exists, but 'Name' is empty, calls new_user as well """
-    if user_data['Name'] == '': 
+    """ if 'Name' is empty, calls new_user and then check_user, else goes to check_user if user wants"""
+    if user_data['Name'] == '':         
         new_user(order, user_data)
         check_user(order, user_data)
     else:
@@ -30,6 +33,10 @@ def start():
         else:
             print('Hab\' einen schönen Tag!')
 
+dict_init()
 start()
+
+# close user_data shelve object
+user_data.close()
 # set_dirs()
 # db_init()
