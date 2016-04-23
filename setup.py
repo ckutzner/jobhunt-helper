@@ -8,6 +8,7 @@ import shelve
 import sqlite3
 # from os import system 
 from userdata import new_user, check_user
+# from init_latex import letterheader # it's just 1 function; move it into this file?? 
 
 # this list serves to ask the user for the data in an order they expect
 order = ['Name','Straße Hausnummer','PLZ Ort','mobil','E-mail','www']
@@ -15,7 +16,7 @@ order = ['Name','Straße Hausnummer','PLZ Ort','mobil','E-mail','www']
 user_data = shelve.open('userfile')
 
 def dict_init():
-    """ if 'Name' exists in dict, loops over order and initializes all the values """
+    """ if 'Name' does not exist in user_data, loops over order and initializes all the values """
     if not 'Name' in user_data:
 	for i in order:
             user_data[i] = ''
@@ -35,8 +36,9 @@ def start():
 
 dict_init()
 start()
+# set_dirs()
+# letterheader()
 
 # close user_data shelve object
 user_data.close()
-# set_dirs()
 # db_init()
