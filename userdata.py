@@ -1,25 +1,31 @@
-""" Functions for user administration """
+""" Module with functions for user administration """
 
-import shelve
+def new_user(order, data):
+    """ 
+    enters new user data in a dictionary; 
+    arguments: list that determines order of elements; dictionary that stores user data 
+    """
+    for k in order:
+        data[k] = input('Bitte gib Deine(n) {} ein und drücke ENTER: '.format(k))
+    return data
 
-userdata = {'Name (Vorname Nachname)':'','Straße Hausnummer':'','PLZ Ort':'','Telefon':'','mobil':'','E-mail':'','www':''}
-
-def new_user(userd):
-    """ enters new user data """
-    for k in userd:
-        userd[k] = input('Bitte gib Deine(n) {} ein und drücke ENTER: '.format(k))
-    return userd
-#    print(userd) # for test
-
-def check_user(userd):
-    """ go over user data, check them, if necessary, alter them """
-    for k in userd:
-        check = input('Ist {} noch Dein(e) korrekte(r) {}? j für ja/n für nein: '.format(userd[k], k))
+def check_user(order, data):
+    """ 
+    go over user data, check them, if necessary, alter them; 
+    arguments: list that determines order of elements; dictionary that stores user data
+    """
+    for k in order:
+        check = input('Ist {} noch Dein(e) korrekte(r) {}? j für ja/n für nein: '.format(data[k], k))
         if check == 'n':
-            userd[k] = input('Bitte gib den/die korrekte {} ein: '.format(k))
+            data[k] = input('Bitte gib den/die korrekte {} ein: '.format(k))
         else:
             print('OK')
     print('Hier sind die korrigierten Daten: ')
-    for k in userd:
-        print(k + ': ' + userd[k])
-    return userd
+    for k in data:
+        print(k + ': ' + data[k])
+    check_again = input('Ist jetzt alles korrekt? j für ja/n für nein: ')
+    if check_again == 'n':
+        check_user(order, data)
+    else:
+        print('OK, super!')
+    return data
