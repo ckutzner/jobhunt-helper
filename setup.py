@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-""" Setup - Programm
-    Interview - nimmt Userdaten entgegen 
-    generiert die Datenbank + Tabelle
-    determiniert die wichtigen Verzeichnisse (template data, Arbeitsverzeichnis) und speichert sie für alle Programmteile, die darauf zugreifen müssen, lesbar ab -> muss was über os lernen!"""
+""" Setup program
+    * prompts user for data
+    * determines relevant directories (template data, working directory) and saves them (in a file? pickled?), so other program parts can access them -> TODO: learn necessary things about the os module!
+    * initializes database and creates table for application data """
 
 import shelve
 import sqlite3
