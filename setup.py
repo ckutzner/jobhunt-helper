@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """ Setup program
     * prompts user for data
+    * provides a check function for user data
     * determines relevant directories (template data, working directory) and saves them (in a file? pickled?), so other program parts can access them -> TODO: learn necessary things about the os module!
+    * generates LaTeX letter header
     * initializes database and creates table for application data """
 
 import shelve
@@ -35,8 +37,8 @@ def start():
 
 dict_init()
 start()
-# set_dirs()
-# letterheader()
+# set_dirs() #move this to before data retrieval?
+# letterheader() #data retrieval is needed for that
 
 # close user_data shelve object
 user_data.close()
