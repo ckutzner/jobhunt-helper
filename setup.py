@@ -35,6 +35,13 @@ def start():
         else:
             print('Hab\' einen schönen Tag!')
 
+#def db_init():
+#    """ 
+#    create sqlite3 database for application data
+#    create table -> determine which columns are needed!
+#    """
+
+
 dict_init()
 start()
 # set_dirs() #move this to before data retrieval?
