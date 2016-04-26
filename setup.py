@@ -10,6 +10,7 @@ import shelve
 import sqlite3
 # from os import system 
 from userdata import new_user, check_user
+from dbsetup import dbsetup
 # from init_latex import letterheader # it's just 1 function; move it into this file?? 
 
 # this list serves to ask the user for the data in an order they expect
@@ -35,13 +36,6 @@ def start():
         else:
             print('Hab\' einen schönen Tag!')
 
-#def db_init():
-#    """ 
-#    create sqlite3 database for application data
-#    create table -> determine which columns are needed!
-#    """
-
-
 dict_init()
 start()
 # set_dirs() #move this to before data retrieval?
@@ -49,4 +43,6 @@ start()
 
 # close user_data shelve object
 user_data.close()
-# db_init()
+
+dbfile = str(input('Jetzt wird die Datenbank für Deine Bewerbungen angelegt. Bitte gib\' einen Namen für die Datenbank ein und betätige ENTER: ')+'.sqlite3') #possible (and sensible) extension: choose file path
+# dbsetup(dbfile)
